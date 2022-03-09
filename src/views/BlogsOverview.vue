@@ -3,12 +3,11 @@ import { ref, onMounted } from "vue";
 import { useStoryblokApi, useStoryblokBridge } from "@storyblok/vue";
 
 const storyblokApi = useStoryblokApi();
-
+const story = ref(null);
 const { data } = await storyblokApi.get("cdn/stories/blogs/overview", {
   version: "draft",
 });
 
-const story = ref(null);
 story.value = data.story;
 
 onMounted(() => {

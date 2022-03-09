@@ -2,12 +2,12 @@
 import { ref, onMounted } from "vue";
 import { useStoryblokApi, useStoryblokBridge } from "@storyblok/vue";
 
+const story = ref(null);
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/overview", {
   version: "draft",
 });
 
-const story = ref(null);
 story.value = data.story;
 
 onMounted(() => {
