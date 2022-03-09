@@ -1,12 +1,12 @@
 <script setup>
-import { RouterView } from "vue-router";
+import Standard from "./templates/Standard.vue";
 </script>
 
 <template>
   <Suspense>
     <template #default>
       <div>
-        <RouterView />
+        <Standard />
       </div>
     </template>
 
