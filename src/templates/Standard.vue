@@ -14,11 +14,11 @@ links.value = data.links;
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flex w-full">
     <SideNav
       class="w-auto pr-32 bg-black text-white min-h-screen"
       :linkList="links"
     />
-    <RouterView />
+    <RouterView class="flex-1" />
   </div>
 </template>

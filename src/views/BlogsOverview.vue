@@ -16,10 +16,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="text-5xl text-center">{{ story.name }}</h1>
-  <Page
-    v-if="story.content.component"
-    :key="story.content._uid"
-    :blok="story.content"
-  />
+  <div class="flex flex-col items-center pt-4">
+    <!-- TODO: check a11y for uppercase -->
+    <h1 class="text-5xl bg-black text-white uppercase p-1">
+      {{ story.name }}
+    </h1>
+    <Page
+      v-if="story.content.component"
+      :key="story.content._uid"
+      :blok="story.content"
+    />
+  </div>
 </template>
