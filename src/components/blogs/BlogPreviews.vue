@@ -19,12 +19,9 @@ stories.value = data.stories;
 </script>
 
 <template>
-  <div class="flex flex-wrap relative">
-    <BlogPreview
-      :blok="blok.content"
-      :key="blok.uuid"
-      v-for="blok in stories"
-      :link="blok.full_slug"
-    />
-  </div>
+  <ul class="flex flex-wrap relative">
+    <li :key="blok.uuid" v-for="blok in stories">
+      <BlogPreview :blok="blok.content" :link="blok.full_slug" />
+    </li>
+  </ul>
 </template>

@@ -4,8 +4,6 @@ describe("Blogs", () => {
   it("visits the blogs overview page", () => {
     cy.visit("/blogs");
     cy.contains("h1", "Overview");
-    cy.get("a").first().click();
-    cy.contains("h1", "hello");
-    // cy.contains('h1', 'You did it!')
+    // cy.get("a").should("have.length", 4);
   });
 });

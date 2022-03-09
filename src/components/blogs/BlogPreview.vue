@@ -8,6 +8,7 @@ defineProps({
 </script>
 
 <template>
+  <!-- TODO: get rid off this div -->
   <div class="relative w-72 flex m-4">
     <router-link
       class="flex-1 flex flex-col border overflow-hidden transition duration-150 ease-out hover:shadow-2xl hover:ease-in"

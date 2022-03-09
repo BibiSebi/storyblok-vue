@@ -1,6 +1,6 @@
 <template>
-  <div v-editable="blok" class="py-2">
-    <h1 class="text-lg">{{ blok.name }}</h1>
+  <div v-editable="blok" class="py-8 mb-6 text-center">
+    <h1 class="text-5xl">{{ blok.name }}</h1>
   </div>
 </template>
 
