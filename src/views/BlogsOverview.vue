@@ -1,14 +1,23 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useStoryblokApi, useStoryblokBridge } from "@storyblok/vue";
+import { mapResolvedLinksToBloks } from "../utils/storyblok";
 
 const storyblokApi = useStoryblokApi();
 const story = ref(null);
 const { data } = await storyblokApi.get("cdn/stories/blogs/overview", {
   version: "draft",
+  resolve_links: "url",
 });
 
-story.value = data.story;
+// TODO: rework
+story.value = {
+  ...data.story,
+  content: {
+    ...data.story.content,
+    body: mapResolvedLinksToBloks(data.story.content.body, data.links),
+  },
+};
 
 onMounted(() => {
   useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory));
