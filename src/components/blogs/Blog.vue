@@ -14,7 +14,7 @@ const props = defineProps({
           {{ blok.headline }}
         </h1>
         <span class="w-1/2 font-serif">{{ blok.teaser }}</span>
-        <span v-if="blok.authors.name" class="font-serif text-sm"
+        <span v-if="blok.authors" class="font-serif text-sm"
           >By {{ blok.authors.name }}
         </span>
         <span class="font-serif text-sm"

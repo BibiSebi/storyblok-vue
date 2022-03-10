@@ -3,16 +3,13 @@ import { ref } from "vue";
 import { useStoryblokApi } from "@storyblok/vue";
 import BlogPreview from "./BlogPreview.vue";
 
-defineProps({
-  blogs: Object,
-});
-
 const storyblokApi = useStoryblokApi();
 const stories = ref(null);
 const { data } = await storyblokApi.get("cdn/stories", {
   version: "draft",
   starts_with: "blogs/blog",
   sort_by: "published_at:asc",
+  resolve_links: "url",
 });
 
 stories.value = data.stories;
