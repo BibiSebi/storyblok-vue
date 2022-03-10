@@ -1,9 +1,8 @@
 <script setup>
 import { format } from "date-fns";
-defineProps({
+const props = defineProps({
   blok: Object,
   published_at: String,
-  author: Object,
 });
 </script>
 
@@ -15,8 +14,8 @@ defineProps({
           {{ blok.headline }}
         </h1>
         <span class="w-1/2 font-serif">{{ blok.teaser }}</span>
-        <span v-if="author" class="font-serif text-sm"
-          >By {{ author.name }}
+        <span v-if="blok.authors.name" class="font-serif text-sm"
+          >By {{ blok.authors.name }}
         </span>
         <span class="font-serif text-sm"
           >Published on: {{ format(new Date(published_at), "LLLL dd, yyyy") }}
@@ -32,11 +31,11 @@ defineProps({
 
     <p class="mt-16 w-1/2 self-center">{{ blok.paragraph }}</p>
     <!-- TODO: place author into a separate component -->
-    <section v-if="author" class="font-serif text-sm">
-      <span>More about {{ author.name }}</span>
-      <p>{{ author.content.description }}</p>
-      <span v-if="author.content.username"
-        >Github: @{{ author.content.username }}</span
+    <section v-if="blok.authors" class="font-serif text-sm">
+      <span>More about {{ blok.authors.name }}</span>
+      <p>{{ blok.authors.content.description }}</p>
+      <span v-if="blok.authors.content.username"
+        >Github: @{{ blok.authors.content.username }}</span
       >
     </section>
   </article>

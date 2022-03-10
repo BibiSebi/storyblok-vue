@@ -1,1 +1,1 @@
-export const authorRelations = ["authors"];
+export const authorRelations = ["blog.authors"];
