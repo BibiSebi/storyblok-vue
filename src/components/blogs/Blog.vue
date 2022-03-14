@@ -1,6 +1,6 @@
 <script setup>
 import { format } from "date-fns";
-const props = defineProps({
+defineProps({
   blok: Object,
   published_at: String,
 });
